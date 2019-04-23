@@ -1,4 +1,5 @@
 #include "../overlay/overlay.hpp"
+#include "../features/features.hpp"
 
 namespace overlay {
 
@@ -105,7 +106,10 @@ namespace overlay {
 		std::cin >> steamvers;
 		g::is_steam_version = ((steamvers == 'Y' || steamvers == 'y'));
 
+		g::world_ptr = c_mem::get()->read_mem<uintptr_t>(g::base_address.modBaseAddr + (g::is_steam_version ? (0x024839C8) : (0x0247F840)));
+
 		CreateThread(0, 0, (LPTHREAD_START_ROUTINE)set_overlay_position, 0, 0, 0);
+		CreateThread(0, 0, (LPTHREAD_START_ROUTINE)features::feature_thread, 0, 0, 0);
 
 		auto window_name = "not_overlay";
 		WNDCLASSEX wnd_class;

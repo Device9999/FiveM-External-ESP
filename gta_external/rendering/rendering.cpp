@@ -11,14 +11,15 @@ namespace rendering
 
 		RECT rect;
 		if (outline) {
+			auto alpha = ((color >> 24) & 255);
 			SetRect(&rect, x - 1, y, x - 1, y);
-			pFont->DrawTextW(NULL, buf, -1, &rect, flags | DT_NOCLIP, D3DCOLOR_RGBA(0, 0, 0, 255));
+			pFont->DrawTextW(NULL, buf, -1, &rect, flags | DT_NOCLIP, D3DCOLOR_RGBA(0, 0, 0, alpha));
 			SetRect(&rect, x + 1, y, x + 1, y);
-			pFont->DrawTextW(NULL, buf, -1, &rect, flags | DT_NOCLIP, D3DCOLOR_RGBA(0, 0, 0, 255));
+			pFont->DrawTextW(NULL, buf, -1, &rect, flags | DT_NOCLIP, D3DCOLOR_RGBA(0, 0, 0, alpha));
 			SetRect(&rect, x, y - 1, x, y - 1);
-			pFont->DrawTextW(NULL, buf, -1, &rect, flags | DT_NOCLIP, D3DCOLOR_RGBA(0, 0, 0, 255));
+			pFont->DrawTextW(NULL, buf, -1, &rect, flags | DT_NOCLIP, D3DCOLOR_RGBA(0, 0, 0, alpha));
 			SetRect(&rect, x, y + 1, x, y + 1);
-			pFont->DrawTextW(NULL, buf, -1, &rect, flags | DT_NOCLIP, D3DCOLOR_RGBA(0, 0, 0, 255));
+			pFont->DrawTextW(NULL, buf, -1, &rect, flags | DT_NOCLIP, D3DCOLOR_RGBA(0, 0, 0, alpha));
 		}
 		SetRect(&rect, x, y, x, y);
 		pFont->DrawTextW(NULL, buf, -1, &rect, flags | DT_NOCLIP, color);

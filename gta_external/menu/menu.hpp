@@ -5,7 +5,7 @@ class c_menu_framework
 {
 
 public:
-	float menu_x = 50, menu_y = 190;
+	float menu_x = 250, menu_y = 290;
 	enum item_type : int {
 		type_bool = 0,
 		type_int = 1,
@@ -33,6 +33,8 @@ public:
 
 		float m_float_max;
 		int m_int_max;
+
+		std::wstring tool_tip;
 	};
 
 	 //int m_total_items = 0;
@@ -41,12 +43,13 @@ public:
 	 std::vector<menu_item_t> items;
 public:
 
-	void add_entry(std::wstring title, bool* value, int is_tab = 0) {
+	void add_entry(std::wstring title, bool* value, int is_tab = 0, std::wstring tooltip = L"") {
 		menu_item_t m_item; 
 		m_item.m_title = title;
 		m_item.m_bool = value;
 		m_item.m_type = item_type::type_bool;
 		m_item.tab_type = is_tab;
+		m_item.tool_tip = tooltip;
 		items.emplace_back(m_item);
 	}
 

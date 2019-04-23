@@ -26,6 +26,15 @@
     <Filter Include="Source Files\utilities">
       <UniqueIdentifier>{03b2f04e-be33-4338-99ef-e67aeef7b6d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\aimbot">
+      <UniqueIdentifier>{d847ff48-2d9e-46dc-a2c8-9362994e1187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\features">
+      <UniqueIdentifier>{05d4fed6-c8e0-4f4b-80c4-5cf8756a8e9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\features\weapon_replacer">
+      <UniqueIdentifier>{ad99d85e-ae02-4de3-abc2-0e2aa88ce3ad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -55,6 +64,15 @@
     <ClCompile Include="utilities\utilities.cpp">
       <Filter>Source Files\utilities</Filter>
     </ClCompile>
+    <ClCompile Include="aimbot\aimbot.cpp">
+      <Filter>Source Files\aimbot</Filter>
+    </ClCompile>
+    <ClCompile Include="features\weapon_replacer\weapon_replacer.cpp">
+      <Filter>Source Files\features\weapon_replacer</Filter>
+    </ClCompile>
+    <ClCompile Include="features\features.cpp">
+      <Filter>Source Files\features</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gta_external.hpp">
@@ -80,6 +98,15 @@
     </ClInclude>
     <ClInclude Include="utilities\utilities.hpp">
       <Filter>Source Files\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="aimbot\aimbot.hpp">
+      <Filter>Source Files\aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="features\weapon_replacer\weapon_replacer.hpp">
+      <Filter>Source Files\features\weapon_replacer</Filter>
+    </ClInclude>
+    <ClInclude Include="features\features.hpp">
+      <Filter>Source Files\features</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

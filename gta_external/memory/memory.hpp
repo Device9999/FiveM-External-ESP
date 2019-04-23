@@ -21,7 +21,7 @@ public:
 	}
 public:
 	static auto initialize(HWND wnd_handle) -> bool;
-	static uintptr_t get_module_base64(uintptr_t pid, const char * module_name);
+	static module_t get_module_base64(uintptr_t pid, const char * module_name);
 
 	template <class t>
 	t read_mem(uintptr_t address) {

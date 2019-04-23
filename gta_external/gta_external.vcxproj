@@ -159,7 +159,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="aimbot\aimbot.cpp" />
     <ClCompile Include="esp\esp.cpp" />
+    <ClCompile Include="features\features.cpp" />
+    <ClCompile Include="features\weapon_replacer\weapon_replacer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="gta_external.cpp" />
     <ClCompile Include="memory\memory.cpp" />
@@ -170,7 +173,10 @@
     <ClCompile Include="utilities\utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="aimbot\aimbot.hpp" />
     <ClInclude Include="esp\esp.hpp" />
+    <ClInclude Include="features\features.hpp" />
+    <ClInclude Include="features\weapon_replacer\weapon_replacer.hpp" />
     <ClInclude Include="memory\memory.hpp" />
     <ClInclude Include="menu\menu.hpp" />
     <ClInclude Include="overlay\overlay.hpp" />
