@@ -79,22 +79,21 @@ namespace overlay {
 			freopen("CONOUT$", "w", stderr);
 		}
 
-		std::string proc_name = "FiveM_GTAProcess.exe";
-		game_window = FindWindow("grcWindow", 0);
-		if (!game_window)
-			game_window = FindWindow(0, "Grand Theft Auto V");
+		std::string proc_name = "GTA5.exe";
+		game_window = FindWindow(0, "Grand Theft Auto V");
 
 		if (c_mem::get()->initialize(game_window)) {
 			printf("GTA5.exe ProcessID -> %i\n\n", int(g::pid));
 		} 
 		else {
+			game_window = FindWindow("grcWindow", 0);
 			if (!c_mem::get()->initialize(game_window)) {
 				printf(("GTA5 is not running... exiting\n"));
 				std::this_thread::sleep_for(std::chrono::seconds(3));
 				exit(0);
 			} 
 			else {
-				proc_name = "GTA5.exe";
+				proc_name = "FiveM_GTAProcess.exe";
 			}
 		}
 
