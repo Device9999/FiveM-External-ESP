@@ -21,6 +21,7 @@ void c_menu_framework::draw() {
 		this->add_entry(L"  Teleport To Waypoint", &vars::player::teleport_to_waypoint, 0, L"Might need spamming.");
 		this->add_entry(L"  Run Speed", &vars::player::run_speed_amount, 0.f, 15.f, 1.f);
 		this->add_entry(L"  Swim Speed", &vars::player::swim_speed_amount, 0.f, 15.f, 1.f);
+		this->add_entry(L"  Draw Crosshair", &vars::weapon::draw_crosshair);
 	}
 
 	this->add_entry(L"ESP", &esp_tab, true);

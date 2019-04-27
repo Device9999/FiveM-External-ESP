@@ -2,7 +2,7 @@
 #include "../esp/esp.hpp"
 
 void c_aimbot::do_aimbot(sdk::c_ped entity) { // pretty buggy, needs playing around with sensitivity
-	float best_fov = 11.f;
+	float best_fov = 25.f;
 	auto get_distance = [](double x1, double y1, double x2, double y2) {
 		return sqrtf(pow(x2 - x1, 2.0) + pow(y2 - y1, 2.0));
 	};

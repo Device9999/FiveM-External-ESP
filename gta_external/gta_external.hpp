@@ -145,6 +145,7 @@ namespace vars
 		extern bool explosive_meelee;
 		extern bool fire_ammo;
 		extern bool super_jump;
+		extern bool draw_crosshair;
 	}
 	namespace menu
 	{

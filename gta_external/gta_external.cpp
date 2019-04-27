@@ -85,6 +85,7 @@ namespace vars
 		bool explosive_meelee = false;
 		bool fire_ammo = false;
 		bool super_jump = false;
+		bool draw_crosshair = false;
 	}
 	namespace menu
 	{
@@ -120,8 +121,21 @@ namespace gta_external
 
 		c_esp().draw_esp();
 
-		menu_framework->draw();
-		menu_framework->do_menu_controls();
+		static bool menu_open = true;
+		if (GetAsyncKeyState(VK_INSERT) & 1)
+			menu_open = !menu_open;
+
+		if (menu_open) {
+			menu_framework->draw();
+			menu_framework->do_menu_controls();
+		}
+
+		if (vars::weapon::draw_crosshair) {
+			static auto center_x = d3d9::screen_width / 2.f;
+			static auto center_y = d3d9::screen_height / 2.f;
+			rendering::c_renderer::get()->draw_line(center_x - 6, center_y, center_x + 7, center_y, D3DCOLOR_RGBA(255, 255, 255, 255));
+			rendering::c_renderer::get()->draw_line(center_x, center_y - 6, center_x, center_y + 7, D3DCOLOR_RGBA(255, 255, 255, 255));
+		}
 
 		d3d9::dx9_device->SetFVF(old_fvf);
 		d3d9::dx9_device->EndScene();

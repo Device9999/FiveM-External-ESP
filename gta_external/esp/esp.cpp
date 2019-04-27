@@ -327,7 +327,11 @@ void c_esp::draw_object_esp(sdk::c_replay_interface replay_iface) {
 				hash_name{L"prop_drug_package_02", -1964997422},
 				hash_name{L"prop_mp_drug_pack_blue", -1620734287},
 				hash_name{L"prop_mp_drug_pack_red", 138777325},
-				hash_name{L"prop_mp_drug_package", 765087784}
+				hash_name{L"prop_mp_drug_package", 765087784},
+
+				hash_name{L"p_meth_bag_01_s", 1808635348},
+				hash_name{L"prop_meth_bag_01", 285917444},
+				hash_name{L"prop_meth_setup_01", -2059889071}
 			};
 
 			for (auto hash : hashes) {

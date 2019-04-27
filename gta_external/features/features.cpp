@@ -131,9 +131,32 @@ void features::player_features(sdk::c_ped local_ped) {
 	auto weapon_mgr = local.weapon_manager_ptr;
 	if (weapon_mgr) {
 		auto weapon_current_ptr = c_mem::get()->read_mem<uintptr_t>(weapon_mgr + 0x20);
-		auto weapon_current = c_mem::get()->read_mem<sdk::weapon_info_t>(weapon_current_ptr);
+		//auto weapon_current = c_mem::get()->read_mem<sdk::weapon_info_t>(weapon_current_ptr);// crashes when writing struct
 		if (weapon_current_ptr) {
+
 			if (vars::weapon::reload_speed > 1.f)
+				c_mem::get()->write_mem<float>(weapon_current_ptr + 0x012C, vars::weapon::reload_speed);
+			if (vars::weapon::bullet_mass > 1.f) {
+				c_mem::get()->write_mem<float>(weapon_current_ptr + 0x00D8, vars::weapon::bullet_mass);
+				c_mem::get()->write_mem<float>(weapon_current_ptr + 0x00DC, vars::weapon::bullet_mass);
+				c_mem::get()->write_mem<float>(weapon_current_ptr + 0x00D4, vars::weapon::bullet_mass);
+			}
+			if (vars::weapon::bullet_damage > 1.f)
+				c_mem::get()->write_mem<float>(weapon_current_ptr + 0x00B0, vars::weapon::bullet_damage);
+			if (vars::weapon::muzzle_velocity > 1.f)
+				c_mem::get()->write_mem<float>(weapon_current_ptr + 0x0114, vars::weapon::muzzle_velocity);
+			if (vars::weapon::weapon_range > 1.f)
+				c_mem::get()->write_mem<float>(weapon_current_ptr + 0x028C, vars::weapon::weapon_range);
+
+			if (vars::weapon::penetration_amount > 0.1f)
+				c_mem::get()->write_mem<float>(weapon_current_ptr + 0x0108, vars::weapon::penetration_amount);
+			if (vars::weapon::no_spread)
+				c_mem::get()->write_mem<float>(weapon_current_ptr + 0x02E8, 0.f);
+			if (vars::weapon::no_recoil)
+				c_mem::get()->write_mem<float>(weapon_current_ptr + 0x0074, 0.f);
+
+
+			/*if (vars::weapon::reload_speed > 1.f)
 				weapon_current.reload_speed = vars::weapon::reload_speed;
 			if (vars::weapon::bullet_mass > 1.f) {
 				weapon_current.force_on_vehicle_bullet_mass = vars::weapon::bullet_mass;
@@ -154,7 +177,7 @@ void features::player_features(sdk::c_ped local_ped) {
 			if (vars::weapon::no_recoil)
 				weapon_current.recoil = 0.f;
 
-			c_mem::get()->write_mem<sdk::weapon_info_t>(weapon_current_ptr, weapon_current);
+			c_mem::get()->write_mem<sdk::weapon_info_t>(weapon_current_ptr, weapon_current);*/
 		}
 	}
 
